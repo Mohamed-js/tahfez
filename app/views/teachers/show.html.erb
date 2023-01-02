@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @teacher.name %>
+</p>
+
+
+
+<% if @teacher.avatar.attached? %>
+  <%= image_tag @teacher.avatar, :width=>180, :crop=>"fill", class: "rounded" %>
+<% end %>
+
+<% if @teacher.video.attached? %>
+  <%= video_tag url_for(@teacher.video) , size: "160x120", controls: true %>
+<% end %>
+
+<p>
+  <strong>Email:</strong>
+  <%= @teacher.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @teacher.phone %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @teacher.password %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @teacher.about %>
+</p>
+
+<p>
+  <strong>Zoom link:</strong>
+  <%= @teacher.zoom_link %>
+</p>
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

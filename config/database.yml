@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: tahfez_development
+  username: postgres
+  password: postgresql
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: tahfez_production
+  username: tahfez
+  password: <%= ENV['TAHFEZ_DATABASE_PASSWORD'] %>

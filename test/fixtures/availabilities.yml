@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  teacher_id: one
+  time: MyString
+  day: MyString
+  occupied: false
+  student_id: one
+
+two:
+  teacher_id: two
+  time: MyString
+  day: MyString
+  occupied: false
+  student_id: two

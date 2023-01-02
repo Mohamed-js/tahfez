@@ -1,0 +1,52 @@
+<%= form_with(model: lesson) do |form| %>
+  <% if lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+
+      <ul>
+        <% lesson.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :student_id_id %>
+    <%= form.text_field :student_id_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :teacher_id_id %>
+    <%= form.text_field :teacher_id_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content_type %>
+    <%= form.text_field :content_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content_name %>
+    <%= form.text_field :content_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :from %>
+    <%= form.text_field :from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to %>
+    <%= form.text_field :to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :material_id_id %>
+    <%= form.text_field :material_id_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

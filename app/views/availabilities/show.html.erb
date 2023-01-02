@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @availability.teacher_id_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @availability.time %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @availability.day %>
+</p>
+
+<p>
+  <strong>Occupied:</strong>
+  <%= @availability.occupied %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @availability.student_id_id %>
+</p>
+
+<%= link_to 'Edit', edit_availability_path(@availability) %> |
+<%= link_to 'Back', availabilities_path %>
