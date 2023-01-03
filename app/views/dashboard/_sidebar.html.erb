@@ -1,0 +1,11 @@
+<% dashboard = current_page?(root_url)  ? "active": "" %>
+<% teachers = current_page?(teachers_path) ? "active": "" %>
+<% students = current_page?(students_path) ? "active": "" %>
+
+
+<div class="d-flex flex-column navbar-links">
+    <h1 class="text-center my-4">Tahfeez</h1>
+    <a class="navbar-link my-1 <%= dashboard %>" href="/"><i class="fa fa-cubes"></i> Dashboard</a>
+    <a class="navbar-link my-1 <%= teachers %>" href="/teachers"><i class="fa fa-chalkboard-user"></i> Teachers</a>
+    <a class="navbar-link my-1 <%= students %>" href="/students"><i class="fa fa-user"></i> Students</a>    
+</div>

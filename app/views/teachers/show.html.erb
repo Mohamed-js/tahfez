@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @teacher.name %>
 </p>
-
-
 
 <% if @teacher.avatar.attached? %>
   <%= image_tag @teacher.avatar, :width=>180, :crop=>"fill", class: "rounded" %>

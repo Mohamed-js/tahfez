@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :admins
+  root "dashboard#index"
   resources :students
   resources :lessons
   resources :availabilities

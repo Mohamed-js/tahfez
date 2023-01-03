@@ -1,0 +1,17 @@
+    <% if notice %>
+      <div id="notice-container">
+        <small id="notice">
+            <div class="d-flex justify-content-center w-100">
+                <i class= "fa fa-check"></i>
+            </div>
+            <br />
+            <%= notice %>
+            <button class="btn btn-primary mt-3" onclick="closeNotice()">OK</button>
+        </small>
+      </div>
+      <script>
+        function closeNotice(){
+            document.getElementById('notice-container').remove();
+        }
+      </script>
+    <% end %>

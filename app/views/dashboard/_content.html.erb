@@ -1,0 +1,9 @@
+<% nav_indicator = "Dashboard" %>
+<% nav_indicator = current_page?(teachers_path) ? "Teachers": nav_indicator %>
+<% nav_indicator = current_page?(students_path) ? "Students": nav_indicator %>
+
+
+<p class="navigation_indicator"><small class="px-1"><i class="fa fa-home"></i></small> > <small><%= nav_indicator %></small></p>
+
+
+<%= yield %>

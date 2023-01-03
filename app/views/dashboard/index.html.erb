@@ -1,0 +1,101 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css"
+  integrity="sha512-V0+DPzYyLzIiMiWCg3nNdY+NyIiK9bED/T1xNBj08CaIUyK3sXRpB26OUCIzujMevxY9TRJFHQIxTwgzb0jVLg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<h2>Dashboard</h2>
+
+<div class="dashboard-squares row mt-4">
+  <div class="col-4 p-2">
+    <div class="dashboard-square text-center bg-tertiary py-4 rounded">
+      <i class="fa fa-person-chalkboard"></i>
+      <h3>5</h3>
+      <small class="white">teachers</small>
+    </div>
+  </div>
+  <div class="col-4 p-2">
+    <div class="dashboard-square text-center bg-secondary py-4 rounded">
+      <i class="fa fa-user"></i>
+      <h3>150</h3>
+      <small class="white">students</small>
+    </div>
+  </div>
+  <div class="col-4 p-2">
+    <div class="dashboard-square text-center bg-danger py-4 rounded">
+      <i class="fa fa-book"></i>
+      <h3>348</h3>
+      <small class="white">lessons</small>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-7 p-2">
+    <div class="rounded border p-3">
+      <h6>Summary</h6>
+      <small>Daily students vs lessons stats </small>
+
+      <script
+        type="text/javascript"
+        src="https://www.gstatic.com/charts/loader.js"
+      ></script>
+      <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ["Day", "Students", "Lessons"],
+            ["11/10", 1000, 400],
+            ["12/10", 1170, 460],
+            ["13/10", 660, 1120],
+            ["14/10", 1030, 540],
+          ]);
+
+          var options = {
+            legend: { position: "bottom" },
+          };
+
+          var chart = new google.visualization.LineChart(
+            document.getElementById("curve_chart")
+          );
+
+          chart.draw(data, options);
+        }
+      </script>
+      <div id="curve_chart" style="width: 100%; height: 250px"></div>
+    </div>
+  </div>
+  <div class="col-5 p-2">
+    <div class="rounded border p-3">
+      <h6>Popular Teachers</h6>
+      <small> By students count </small>
+      <br />
+      <div class="rounded border row rating-card align-items-center">
+        <div class="col-3 circle p-0">
+          <%= image_tag 'media', height: '100%', width: '100%' %>
+        </div>
+        <p class="col-6 p-1">Mohammed Atef</p>
+        <small class="col-3 p-1"> 155 </small>
+      </div>
+
+      <div class="rounded border row rating-card align-items-center">
+        <div class="col-3 circle p-0">
+          <%= image_tag '7', height: '100%', width: '100%' %>
+        </div>
+        <p class="col-6 p-1">Salma Ali</p>
+        <small class="col-3 p-1"> 114 </small>
+      </div>
+
+      <div class="rounded border row rating-card align-items-center">
+        <div class="col-3 circle p-0">
+          <%= image_tag '8', height: '100%', width: '100%' %>
+        </div>
+        <p class="col-6 p-1">Sara Ahmed</p>
+        <small class="col-3 p-1"> 90 </small>
+      </div>
+    </div>
+  </div>
+</div>

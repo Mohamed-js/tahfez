@@ -13,3 +13,186 @@
  *= require_tree .
  *= require_self
  */
+
+@import url("https://fonts.googleapis.com/css2?family=Revalia&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0 !important;
+}
+
+body {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Revalia", cursive;
+  color: #420087;
+}
+
+.navbar-link i.fa {
+  font-size: calc(0.2rem + 1.5vw);
+  width: calc(0.2rem + 1.75vw);
+}
+
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.3vw;
+}
+
+.circle {
+  overflow: hidden;
+}
+
+.dashboard {
+  min-height: 100vh;
+}
+
+.sidebar {
+  border-right: 2px solid #ebebeb7d;
+  padding: 0;
+}
+
+.sidebar h1 {
+  font-size: 3.5vw;
+}
+
+.logo {
+  color: #1a9bfc;
+}
+
+.navbar-links {
+  padding: 1vw;
+}
+
+.navbar-link {
+  color: #420087;
+  border-radius: 10px;
+  font-size: calc(1.3vw);
+  padding: 1.5vw;
+}
+
+.navbar-link.active {
+  color: white;
+  background-color: #7460ee;
+}
+
+.navbar-link.active:hover {
+  color: white;
+  background-color: #7460ee;
+}
+
+.navbar-link:hover {
+  background: rgb(228, 228, 228);
+  color: #420087;
+}
+
+.navigation_indicator {
+  color: #4c4c4c;
+  display: flex;
+  align-items: center;
+}
+
+#notice-container {
+  background: #17171780;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#notice {
+  max-width: 50%;
+  background-color: white;
+  min-height: 150px;
+  border-radius: 10px;
+  box-shadow: 4px 5px 20px #00000080;
+  padding: 20px;
+  text-align: center;
+  animation: notice-disappear 0.2s forwards ease-in-out;
+}
+
+#notice .fa-check {
+  background: limegreen;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes notice-disappear {
+  0% {
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bg-danger {
+  background-color: #fc4b6c !important;
+  color: white;
+}
+.bg-success {
+  background-color: #39cb7f !important;
+  color: white;
+}
+.bg-primary {
+  background-color: #1a9bfc !important;
+  color: white;
+}
+.bg-secondary {
+  background-color: #fdc90f !important;
+  color: white;
+}
+.bg-tertiary {
+  background-color: #7460ee !important;
+  color: white;
+}
+
+small {
+  font-size: 0.75rem;
+  color: #4c4c4c;
+}
+
+.rating-card img {
+  object-fit: cover;
+  border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.rating-card .circle {
+  border-radius: 50%;
+  padding: 0.3vw !important;
+  text-align: center;
+}
+
+.rating-card {
+  margin-top: 10px !important;
+  padding: 10px 2px;
+}
+
+.rating-card p {
+  font-size: 1.2vw;
+}
+
+.rating-card small {
+  font-size: 1vw;
+  text-align: center;
+}
+
+.white {
+  color: white !important;
+}
