@@ -1,36 +1,50 @@
+<h2 class='d-flex align-items-center'>Teachers <small> <%= link_to 'Add  Teacher', new_teacher_path, class: 'btn bg-tertiary mx-2' %> </small></h2>
 
-<h2>Teachers</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Password</th>
-      <th>About</th>
-      <th>Zoom link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.email %></td>
-        <td><%= teacher.phone %></td>
-        <td><%= teacher.password %></td>
-        <td><%= teacher.about %></td>
-        <td><%= teacher.zoom_link %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+
+
+
+<div class='my-table border rounded p-3'>
+    <div class='my-table-header row'>
+      <div class="table-col col-2">
+        Teacher
+      </div>
+      <div class="table-col col-3">
+        Email
+      </div>
+      <div class="table-col col-2">
+        Phone
+      </div>
+      <div class="table-col col-2">
+        Zoom
+      </div>
+      <div class="table-col col-3">
+        Controls
+      </div>
+    </div>
+    <hr>
+    <div class='my-table-body'>
+    <% @teachers.each do |teacher| %>
+      <div class='row py-2 align-items-center table-row'>
+        <div class="table-col col-2">
+          <%= link_to teacher.name, teacher, class: 'p-0' %>
+        </div>
+        <div class="table-col col-3">
+          <%= teacher.email %>
+        </div>
+        <div class="table-col col-2">
+          <%= teacher.phone %>
+        </div>
+        <div class="table-col col-2">
+          <%= teacher.zoom_link %>
+        </div>
+        <div class="table-col col-3">
+          <%= link_to 'Edit', edit_teacher_path(teacher), class:"btn btn-primary" %>
+          <%= link_to 'Delete', teacher, method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-danger" %>
+        </div>
+      </div>
+    <% end %>  
+    </div>
+  </div>

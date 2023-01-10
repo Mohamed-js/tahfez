@@ -11,21 +11,21 @@
   <div class="col-4 p-2">
     <div class="dashboard-square text-center bg-tertiary py-4 rounded">
       <i class="fa fa-person-chalkboard"></i>
-      <h3>5</h3>
+      <h3><%= @teachers_count %></h3>
       <small class="white">teachers</small>
     </div>
   </div>
   <div class="col-4 p-2">
     <div class="dashboard-square text-center bg-secondary py-4 rounded">
       <i class="fa fa-user"></i>
-      <h3>150</h3>
+      <h3><%= @students_count %></h3>
       <small class="white">students</small>
     </div>
   </div>
   <div class="col-4 p-2">
     <div class="dashboard-square text-center bg-danger py-4 rounded">
       <i class="fa fa-book"></i>
-      <h3>348</h3>
+      <h3><%= @lessons_count %></h3>
       <small class="white">lessons</small>
     </div>
   </div>
@@ -33,7 +33,7 @@
 
 <div class="row">
   <div class="col-7 p-2">
-    <div class="rounded border p-3">
+    <div class="rounded border p-3 h-100">
       <h6>Summary</h6>
       <small>Daily students vs lessons stats </small>
 
@@ -46,22 +46,13 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ["Day", "Students", "Lessons"],
-            ["11/10", 1000, 400],
-            ["12/10", 1170, 460],
-            ["13/10", 660, 1120],
-            ["14/10", 1030, 540],
-          ]);
-
+          var data = google.visualization.arrayToDataTable(<%= raw  @last_10_days_stats.map{|day| day} %>);
           var options = {
             legend: { position: "bottom" },
           };
-
           var chart = new google.visualization.LineChart(
             document.getElementById("curve_chart")
           );
-
           chart.draw(data, options);
         }
       </script>
@@ -69,33 +60,62 @@
     </div>
   </div>
   <div class="col-5 p-2">
-    <div class="rounded border p-3">
+    <div class="rounded border p-3 h-100">
       <h6>Popular Teachers</h6>
       <small> By students count </small>
       <br />
-      <div class="rounded border row rating-card align-items-center">
-        <div class="col-3 circle p-0">
-          <%= image_tag 'media', height: '100%', width: '100%' %>
+      <% @popular_teachers.each do |teacher| %>
+        <div class="rounded border row rating-card align-items-center">
+          <div class="col-3 circle p-0">
+            <%= image_tag Teacher.find(teacher[0][0]).avatar, height: '100%', width: '100%' %>
+          </div>
+          <p class="col-6 p-1"><%= teacher[0][1] %></p>
+          <small class="col-3 p-1"> <%= teacher[1] %> </small>
         </div>
-        <p class="col-6 p-1">Mohammed Atef</p>
-        <small class="col-3 p-1"> 155 </small>
-      </div>
+      <% end %>
+    </div>
+  </div>
 
-      <div class="rounded border row rating-card align-items-center">
-        <div class="col-3 circle p-0">
-          <%= image_tag '7', height: '100%', width: '100%' %>
-        </div>
-        <p class="col-6 p-1">Salma Ali</p>
-        <small class="col-3 p-1"> 114 </small>
+  <div class='my-table border rounded p-3'>
+    <div class='my-table-header row'>
+      <div class="table-col col-2">
+        Teacher
       </div>
-
-      <div class="rounded border row rating-card align-items-center">
-        <div class="col-3 circle p-0">
-          <%= image_tag '8', height: '100%', width: '100%' %>
-        </div>
-        <p class="col-6 p-1">Sara Ahmed</p>
-        <small class="col-3 p-1"> 90 </small>
+      <div class="table-col col-2">
+        Lessons
       </div>
+      <div class="table-col col-2">
+        Students
+      </div>
+      <div class="table-col col-2">
+        Earnings
+      </div>
+      <div class="table-col col-4">
+        Controls
+      </div>
+    </div>
+    
+    <hr>
+    <div class='my-table-body'>
+      <div class='row py-2 align-items-center table-row'>
+        <div class="table-col col-2">
+          Mohammed Atef
+        </div>
+        <div class="table-col col-2">
+          155
+        </div>
+        <div class="table-col col-2">
+          20
+        </div>
+        <div class="table-col col-2">
+          3900
+        </div>
+        <div class="table-col col-4">
+          <%= link_to 'Edit', '#', class:"btn btn-primary" %>
+          <%= link_to 'Delete', '#', class:"btn btn-danger" %>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
